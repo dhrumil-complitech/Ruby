@@ -1,14 +1,16 @@
-puts "Enter the lower limit:"
-lwr = gets.chomp.to_i
-puts "Enter the upper limit:"
-upr = gets.chomp.to_i
-
-for yr in lwr..upr do
-  if yr % 400 == 0
-    puts "#{yr} is a leap year"
-  elsif yr % 4 == 0 && yr % 100 !=0
-    puts "#{yr} is a leap year"
+def leap_year?(year)
+  if (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+    return true
   else
-    puts "#{yr} is not a leap year"
+    return false
   end
+end
+
+print "Enter a year: "
+year = gets.chomp.to_i
+
+if leap_year?(year)
+  puts "#{year} is a leap year."
+else
+  puts "#{year} is not a leap year."
 end
