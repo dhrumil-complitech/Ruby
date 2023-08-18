@@ -1,3 +1,4 @@
+#add two integer numbers
 def sum(a,b)
     sum = a + b;
 	if(sum >= 20 && sum <= 30)
