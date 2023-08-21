@@ -1,20 +1,13 @@
-def is_prime?(num)
-	return false if num <= 1
-  
-	(2..Math.sqrt(num)).each do |i|
-	  return 
-	  false if num % i == 0
-	end
-  
-	true
+
+puts "Enter a number:"
+num = gets.chomp.to_i
+
+def check_is_prime(num)
+  (2..(num - 1)).each do |n|
+    return "#{num} is not a prime number" if num % n == 0
   end
-  
-  puts "Enter a number:"
-  num = gets.chomp.to_i
-  
-  if is_prime?(num)
-	puts "#{num} is a prime number."
-  else
-	puts "#{num} is not a prime number."
-  end
-  
+  return "#{num} is a prime number"
+end
+
+number = check_is_prime(num)
+puts number
