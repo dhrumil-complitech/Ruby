@@ -1,7 +1,7 @@
 def division_and_remainder(dividend, divisor)
-    quotient = dividend / divisor
+    answer = dividend / divisor
     remainder = dividend % divisor
-    return quotient, remainder
+    return answer, remainder
   end
   
   print "Enter the dividend: "
@@ -10,8 +10,8 @@ def division_and_remainder(dividend, divisor)
   print "Enter the divisor: "
   divisor = gets.chomp.to_i
   
-  quotient, remainder = division_and_remainder(dividend, divisor)
+  answer, remainder = division_and_remainder(dividend, divisor)
   
-  puts "Answer: #{quotient}"
+  puts "Answer: #{answer}"
   puts "Remainder: #{remainder}"
   
