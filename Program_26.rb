@@ -11,7 +11,7 @@ def check_input_type(input)
     end
   end
   
-  # Get input from the user
+
   print "Enter a string: "
   input_string = gets.chomp
   
