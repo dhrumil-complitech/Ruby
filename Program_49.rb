@@ -1,5 +1,5 @@
 persons= {"1" =>"Dhrumil","2" => "Dhruvin","3" => "Ravi","4"=>"Rahul"}
-print "Enter a Student Name: "
+print "Enter a Person Name: "
 user_input = gets.chomp
 matching_keys = persons.select { |key, value| value == user_input }.keys
 if matching_keys.any?
