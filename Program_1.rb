@@ -1,11 +1,15 @@
-
-puts "Enter first value: "
-num1=gets.chomp.to_i
-puts "Enter second value: "
-num2=gets.chomp.to_i
-
-
-sum=num1+num2
-
-
-puts "The sum is #{sum}"
+begin
+    puts "Enter first value: "
+    num1_input = gets.chomp
+    num1 = Integer(num1_input)  
+    puts "Enter second value: "
+    num2_input = gets.chomp
+    num2 = Integer(num2_input) 
+    sum = num1 + num2
+    puts "The sum is #{sum}"
+  rescue ArgumentError
+    puts "Invalid input. Please enter valid integers for both values."
+  rescue => e
+    puts "An error occurred: #{e.message}"
+  end
+  
