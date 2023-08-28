@@ -8,7 +8,7 @@ begin
     sum = num1 + num2
     puts "The sum is #{sum}"
   rescue ArgumentError
-    puts "Invalid input. Please enter valid integers for both values."
+    puts "Invalid input. Please enter valid number."
   rescue => e
     puts "An error occurred: #{e.message}"
   end
