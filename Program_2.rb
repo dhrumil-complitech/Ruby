@@ -3,7 +3,7 @@ begin
     length = gets.chomp
     length = Integer(length)
     rescue ArgumentError
-    puts "You have entered wrong length."
+    puts "Please Entered Valid Length"
     retry
   end
   begin
@@ -11,7 +11,7 @@ begin
     width = gets.chomp
     width = Integer(width)
     rescue ArgumentError
-    puts "You have entered wrong width."
+    puts "Please Entered  Valid Width"
     retry
   end
   area = length * width;
