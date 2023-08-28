@@ -3,7 +3,7 @@ begin
     num1 = gets.chomp
     num1 = Integer(num1)
     rescue ArgumentError
-    puts "You have entered wrong integer number."
+    puts "Please Entered Valid Number ."
     retry
   end
   begin
@@ -11,7 +11,7 @@ begin
     num2 = gets.chomp
     num2 = Integer(num2)
     rescue ArgumentError
-    puts "You have entered wrong integer number."
+    puts "Please Entered Valid Number "
     retry
   end
     sum = num1 + num2
