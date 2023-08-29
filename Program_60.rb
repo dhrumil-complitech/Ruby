@@ -16,14 +16,23 @@ class ATM
       @account_balance = gets.chomp.to_f
     end
     
-    def set_pin
-      print "Set up your 4-digit ATM PIN: "
-      @pin = gets.chomp
-    end
+      def set_pin
+        loop do
+          print "Set up your 4-digit ATM PIN: "
+          @pin = gets.chomp
     
+          if @pin.length == 4 && @pin.match?(/^\d{4}$/)
+            puts "PIN set successfully!"
+            break
+          else
+            puts "Invalid PIN format. Please enter a 4-digit PIN."
+          end
+        end
+      end
+      
     def confirm_pin
       print "Re-confirm your 4-digit ATM PIN: "
-      confirmation_pin = gets.chomp
+      confirmation_pin = gets.chomp 
       
       if confirmation_pin == @pin
         puts "PIN set successfully!"
@@ -51,7 +60,7 @@ class ATM
       amount = gets.chomp.to_f
       
       @account_balance += amount
-      puts "Amount credited successfully. Your new balance is $#{@account_balance}."
+      puts "Amount credited successfully. Your new balance is RS#{@account_balance}."
     end
     
     def debit
@@ -62,7 +71,7 @@ class ATM
         puts "Insufficient funds."
       else
         @account_balance -= amount
-        puts "Amount debited successfully. Your new balance is $#{@account_balance}."
+        puts "Amount debited successfully. Your new balance is RS#{@account_balance}."
       end
     end
   end
