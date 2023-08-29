@@ -63,7 +63,7 @@ class ATM
         puts "Please Enter Valid Amount"
       else
       @account_balance += amount
-      puts "Amount credited successfully. Your new balance is RS#{@account_balance}."
+      puts "Amount credited successfully. Your new balance is RS.#{@account_balance}."
     end
   end
   
@@ -76,11 +76,11 @@ class ATM
       puts "Please enter a valid amount."
     else
       @account_balance - amount
-      
+
       if amount > @account_balance
         puts "Insufficient Fund."
       else
-        puts "Amount debited successfully. Your new balance is RS. #{@account_balance}"
+        puts "Amount debited successfully. Your new balance is RS.#{@account_balance}"
       end
     end
   end
