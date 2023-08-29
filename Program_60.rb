@@ -54,7 +54,8 @@ class ATM
         return false
       end
     end
-    
+
+
     def credit
       print "Enter the amount to credit: RS"
       amount = gets.chomp.to_f
@@ -65,18 +66,27 @@ class ATM
       puts "Amount credited successfully. Your new balance is RS#{@account_balance}."
     end
   end
-    def debit
-      print "Enter the amount to debit: RS"
-      amount = gets.chomp.to_f
+  
+
+  def debit
+    print "Enter the amount to debit: RS."
+    amount = gets.chomp.to_f
+  
+    if (amount < 0)
+      puts "Please enter a valid amount."
+    else
+      @account_balance - amount
       
       if amount > @account_balance
-        puts "Insufficient funds."
+        puts "Insufficient Fund."
       else
-        @account_balance -= amount
-        puts "Amount debited successfully. Your new balance is RS#{@account_balance}."
+        puts "Amount debited successfully. Your new balance is RS. #{@account_balance}"
       end
     end
   end
+  end
+
+
   atm = ATM.new
   atm.set_account_holder_name
   atm.set_account_balance
