@@ -25,11 +25,11 @@ class ATM
             puts "PIN set successfully!"
             break
           else
-            puts "Invalid PIN format. Please enter a 4-digit PIN."
+            puts "Please enter a 4-digit PIN."
           end
         end
       end
-      
+
     def confirm_pin
       print "Re-confirm your 4-digit ATM PIN: "
       confirmation_pin = gets.chomp 
@@ -58,11 +58,13 @@ class ATM
     def credit
       print "Enter the amount to credit: RS"
       amount = gets.chomp.to_f
-      
+      if(amount<0)
+        puts "Please Enter Valid Amount"
+      else
       @account_balance += amount
       puts "Amount credited successfully. Your new balance is RS#{@account_balance}."
     end
-    
+  end
     def debit
       print "Enter the amount to debit: RS"
       amount = gets.chomp.to_f
