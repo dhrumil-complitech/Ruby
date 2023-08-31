@@ -1,12 +1,12 @@
 class ATM
-    attr_accessor :account_holder_name, :account_balance, :pin    
-    def initialize
-      @account_holder_name = ""
-      @account_balance = 0.0
-      @pin = nil
-    end
-    
-    def set_account_holder_name
+  attr_accessor :account_holder_name, :account_balance, :pin
+
+  def initialize
+    @account_holder_name = ""
+    @account_balance = 0.0
+    @pin = nil
+  end
+  def set_account_holder_name
       print "Enter your name: "
       @account_holder_name = gets.chomp
     end
@@ -59,8 +59,8 @@ class ATM
       if(amount<0)
         puts "Please Enter Valid Amount"
       else
-      @account_balance += amount
-      puts "Amount credited successfully. Your new balance is RS.#{@account_balance}."
+      new_amount= @account_balance += amount
+      puts "Amount credited successfully. Your new balance is RS.#{new_amount}."
     end
   end
   
@@ -70,26 +70,54 @@ class ATM
     if (amount < 0)
       puts "Please enter a valid amount."
     else
-      @account_balance - amount
+      new_balance=@account_balance - amount
       if amount > @account_balance
         puts "Insufficient Fund."
       else
-        puts "Amount debited successfully. Your new balance is RS.#{@account_balance}"
+        puts "Amount debited successfully. Your new balance is RS.#{new_balance}"
       end
     end
   end
   end
 
-
-  atm = ATM.new
+def create_user(atm, user_num)
+  puts "User #{user_num}"
   atm.set_account_holder_name
   atm.set_account_balance
   atm.set_pin
   atm.confirm_pin
-  
-  if atm.verify_pin
-    puts "Welcome, #{atm.account_holder_name}!"
-    
+end
+
+user1 = ATM.new
+create_user(user1, 1)
+
+user2 = ATM.new
+create_user(user2, 2)
+
+loop do
+  puts "\nSelect a user:"
+  puts "1. User 1"
+  puts "2. User 2"
+  puts "3. Exit"
+  print "Enter your choice: "
+  user_choice = gets.chomp.to_i
+
+  case user_choice
+  when 1
+    current_atm = user1
+  when 2
+    current_atm = user2
+  when 3
+    puts "Thank you for using the ATM. Goodbye!"
+    break
+  else
+    puts "Invalid choice. Please select a valid option."
+    next
+  end
+
+  if current_atm.verify_pin
+    puts "Welcome, #{current_atm.account_holder_name}!"
+
     loop do
       puts "\nSelect an option:"
       puts "1. Credit money"
@@ -97,12 +125,12 @@ class ATM
       puts "3. Exit"
       print "Enter your choice: "
       choice = gets.chomp.to_i
-      
+
       case choice
       when 1
-        atm.credit
+        current_atm.credit
       when 2
-        atm.debit
+        current_atm.debit
       when 3
         puts "Thank you for using the ATM. Goodbye!"
         break
@@ -113,3 +141,4 @@ class ATM
   else
     puts "Exiting ATM."
   end
+end
