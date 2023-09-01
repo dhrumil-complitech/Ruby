@@ -1,21 +1,16 @@
+# Superclass
 class Animal
-    def initialize(name)
-      @name = name
-    end
     def speak
-      puts "#{@name} makes a sound"
+      puts "Animal makes a sound"
     end
   end
+  
+  # Subclass
   class Dog < Animal
-    def initialize(name, breed)
-      super(name) 
-      @breed = breed
-    end  
-    def fetch
-      puts "#{@name} catch the ball"
+    def speak
+      puts "Dog barks loudly"
     end
   end
-  my_dog = Dog.new("Buddy", "Golden Retriever")
-  my_dog.speak
-  my_dog.fetch
+  dog = Dog.new
+  dog.speak
   
