@@ -56,28 +56,28 @@ class ATM
     def credit
       print "Enter the amount to credit: RS"
       amount = gets.chomp.to_f
-      if(amount<0)
-        puts "Please Enter Valid Amount"
+      if amount < 0
+        puts "Please enter a valid amount."
       else
-      new_amount= @account_balance += amount
-      puts "Amount credited successfully. Your new balance is RS.#{new_amount}."
-    end
-  end
-  
-  def debit
-    print "Enter the amount to debit: RS."
-    amount = gets.chomp.to_f
-    if (amount < 0)
-      puts "Please enter a valid amount."
-    else
-      new_balance=@account_balance - amount
-      if amount > @account_balance
-        puts "Insufficient Fund."
-      else
-        puts "Amount debited successfully. Your new balance is RS.#{new_balance}"
+        new_balance = @account_balance + amount
+        @account_balance = new_balance
+        puts "Amount credited successfully. Your new balance is RS.#{new_balance}."
       end
     end
-  end
+  
+    def debit
+      print "Enter the amount to debit: RS"
+      amount = gets.chomp.to_f
+      if amount < 0
+        puts "Please enter a valid amount."
+      elsif amount > @account_balance
+        puts "Insufficient funds. Your current balance is RS.#{@account_balance}."
+      else
+        new_balance = @account_balance - amount
+        @account_balance = new_balance
+        puts "Amount debited successfully. Your new balance is RS.#{new_balance}."
+      end
+    end
   end
 
 def create_user(atm, user_num)
